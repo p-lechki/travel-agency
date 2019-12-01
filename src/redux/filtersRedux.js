@@ -49,7 +49,7 @@ export default function reducer(statePart = [], action = {}) {
         ...statePart,
         duration: {
           ...statePart.duration,
-          ...action.payload,
+          [action.payload.type]: parseInt(action.payload.value),
         },
       };
     default:

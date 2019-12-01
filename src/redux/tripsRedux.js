@@ -1,3 +1,5 @@
+// import { parseOptionPrice } from '../utils/parseOptionPrice';
+
 /* SELECTORS */
 
 export const getAllTrips = ({trips}) => trips;
@@ -12,10 +14,23 @@ export const getFilteredTrips = ({trips, filters}) => {
   }
 
   // TODO - filter by duration
+  if(filters.duration){
+    output = output.filter(trip => filters.duration.from < trip.days && trip.days < filters.duration.to);
+  }
 
   // TODO - filter by tags
+  if(filters.tags){
+    const pattern = new RegExp(filters.tags, 'i');
+    output = output.filter(trip => pattern.test(trip.tags));
+  }
 
-  // TODO - sort by cost descending (most expensive goes first)
+  // TODO - sort by cost descending (most expensive goes first) - fix my later
+  // output = output.map(
+  //   trip => { trip.cost = parseOptionPrice(trip.cost).value; return trip;
+  //   })
+  //   .sort((tripA, tripB) => {
+  //     return tripB.cost - tripA.cost;
+  //   });
 
   return output;
 };
@@ -40,22 +55,27 @@ export const getTripsForCountry = ({trips}, countryCode) => {
 
 /* ACTIONS */
 
-/*
+
 // action name creator
 const reducerName = 'trips';
 const createActionName = name => `app/${reducerName}/${name}`;
 
 // action types
-
+export const TRIPS_FILTER = createActionName('TRIPS_FILER');
 
 // action creators
-
+export const tripsFilter = payload => ({
+  payload,
+  type: TRIPS_FILTER,
+});
 
 // reducer
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
+    case TRIPS_FILTER:
+      return action.payload;
     default:
       return statePart;
   }
 }
- */
+ 
