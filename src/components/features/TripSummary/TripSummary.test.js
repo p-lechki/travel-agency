@@ -29,7 +29,7 @@ describe('Component TripSummary', () => {
   });
 
   it('should throw error without missig one of props', () => {
-    expect(() => shallow(<TripSummary tags={[]}/>)).toThrow();
+    expect(() => shallow(<TripSummary />)).toThrow();
   });
 
   it('should render tags array correctly', () => {
