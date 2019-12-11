@@ -28,7 +28,7 @@ describe('Component TripSummary', () => {
     console.log(component.debug());
   });
 
-  it('should throw error without missig one of props', () => {
+  it('should throw error without required props', () => {
     expect(() => shallow(<TripSummary />)).toThrow();
   });
 
@@ -43,7 +43,6 @@ describe('Component TripSummary', () => {
 
   it('should render tags div if tags is truthy', () => {
     const component = shallow(<TripSummary tags={[]} />);
-
     expect(component.find('.tags')).toBeTruthy();
   });
 });
