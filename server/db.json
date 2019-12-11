@@ -37,6 +37,20 @@
       "start-date": "",
       "totalCost": "$51,381",
       "id": 3
+    },
+    {
+      "car-rental": "suv",
+      "accommodation": "hotel",
+      "features": [
+        "security"
+      ],
+      "adults": 1,
+      "children": 0,
+      "name": "",
+      "contact": "",
+      "start-date": "",
+      "totalCost": "$53,581",
+      "id": 4
     }
   ]
 }

@@ -141,9 +141,9 @@ describe('Component OrderOption', () => {
           });
 
           it('should run setOrderOption function on change', () => {
-            renderedSubcomponent.find('input').simulate('change', {currentTarget: {testValueNumber}});
+            renderedSubcomponent.find('input').simulate('change', {currentTarget: {value: testValueNumber}});
             expect(mockSetOrderOption).toBeCalledTimes(1);
-            expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue});
+            expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValueNumber});
           });
           break;
         }
